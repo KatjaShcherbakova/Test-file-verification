@@ -55,7 +55,7 @@ public class FileZIP {
         new ZIPUtils().unzip(source,destination);
         sleep(20000);
 
-        String actualFileText = new FileUtils().readStringFromFile("src/test/resources/files/file.txt");
+        String actualFileText = new FileUtils().readStringFromFile("src/test/resources/files/unzipNeg/file.txt");
 
         System.out.println("Actual text from the file:\n" + actualFileText);
 
