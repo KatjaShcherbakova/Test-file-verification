@@ -25,7 +25,7 @@ public class FileTXT {
     @DisplayName("Positive test, searching for the text in the TXT file")
 
     void successfulSearchTextInFileTXT(){
-        String expectedFileText = "Check this file7";
+        String expectedFileText = "Check this file";
         String actualFileText = new FileUtils().readStringFromFile("src/test/resources/files/file.txt");
 
         System.out.println("Actual text from the file:\n"+actualFileText);

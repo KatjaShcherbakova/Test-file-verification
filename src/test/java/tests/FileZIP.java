@@ -1,13 +1,19 @@
 package tests;
 
+import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import utils.FileUtils;
 import utils.ZIPUtils;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+@Feature("Work with files")
+@Tag("file")
+@Tag("zip")
 
 public class FileZIP {
 

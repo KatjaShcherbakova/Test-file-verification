@@ -19,6 +19,7 @@ public class FileExel {
 
     void successfulSearchTextinFileExel(){
 
+        assert (true);
 
     }
 }
