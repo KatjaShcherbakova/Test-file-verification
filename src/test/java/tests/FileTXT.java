@@ -5,9 +5,12 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import utils.FileUtils;
 
 import static io.qameta.allure.Allure.step;
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @Feature("Work with files")
@@ -16,17 +19,24 @@ import static org.junit.Assert.assertEquals;
 
 public class FileTXT {
 
-    @Story("Search for the text in the file")
-    @DisplayName("Positive test, searching for the text in the file")
 
     @Test
-    void successfulSearchTextInFile(){
+    @Story("Search for the text in the file")
+    @DisplayName("Positive test, searching for the text in the TXT file")
 
-        step("Test beginning");
+    void successfulSearchTextInFileTXT(){
+        String expectedFileText = "Check this file7";
+        String actualFileText = new FileUtils().readStringFromFile("src/test/resources/files/file.txt");
 
-        assertEquals (true, true);
+        System.out.println("Actual text from the file:\n"+actualFileText);
+
+        assertThat(actualFileText,containsString(expectedFileText));
+
+//        assertTrue(actualFileText.contains(expectedFileText),"\n\nExpected text: \n"+ expectedFileText + "\n\n"
+//                +"Actual text: \n"+ actualFileText);
 
     }
+
 
 
 }
