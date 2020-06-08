@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 public class FileExel {
 
     @Test
-    @Story("Search for the text in the file")
+    @Story("EXEL file test")
     @DisplayName("Positive test, searching for the text in the EXEL file")
 
     void successfulSearchTextinFileExel(){

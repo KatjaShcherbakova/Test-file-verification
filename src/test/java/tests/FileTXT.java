@@ -21,7 +21,7 @@ public class FileTXT {
 
 
     @Test
-    @Story("Search for the text in the file")
+    @Story("TXT file test")
     @DisplayName("Positive test, searching for the text in the TXT file")
 
     void successfulSearchTextInFileTXT(){
