@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import utils.FileUtils;
 import utils.ZIPUtils;
 
+import static com.codeborne.selenide.Selenide.sleep;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -30,6 +31,7 @@ public class FileZIP {
         String expectedFileText = "Check this file2";
 
         new ZIPUtils().unzip(source,destination);
+        sleep(20000);
 
         String actualFileText = new FileUtils().readStringFromFile("src/test/resources/files/unzip/file2.txt");
 
@@ -51,6 +53,7 @@ public class FileZIP {
         String expectedFileText = "Check this file7";
 
         new ZIPUtils().unzip(source,destination);
+        sleep(20000);
 
         String actualFileText = new FileUtils().readStringFromFile("src/test/resources/files/file.txt");
 
@@ -73,6 +76,7 @@ public class FileZIP {
         String expectedFileText = "Check this file2";
 
         new ZIPUtils().unzip(source,destination, password);
+        sleep(20000);
 
         String actualFileText = new FileUtils().readStringFromFile("src/test/resources/files/unzipPas/file2.txt");
 
