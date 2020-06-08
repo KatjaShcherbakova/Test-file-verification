@@ -39,7 +39,7 @@ public class FileZIP {
     void unSuccessfulSearchTextInFileZIP() {
 
         String source = "src/test/resources/files/files.zip";
-        String destination = "src/test/resources/files";
+        String destination = "src/test/resources/files/unzipNeg";
 
 
         String expectedFileText = "Check this file7";
@@ -47,6 +47,28 @@ public class FileZIP {
         new ZIPUtils().unzip(source,destination);
 
         String actualFileText = new FileUtils().readStringFromFile("src/test/resources/files/file.txt");
+
+        System.out.println("Actual text from the file:\n" + actualFileText);
+
+        assertThat(actualFileText, containsString(expectedFileText));
+    }
+
+    @Test
+    @Story("ZIP file test")
+    @DisplayName("Positive test, unzip file with PASSWORD  and search for the text in the TXT file")
+
+    void unSuccessfulSearchTextInFileZIPWithPAssword() {
+
+        String source = "src/test/resources/files/filesPas.zip";
+        String destination = "src/test/resources/files/unzipPas";
+        String password = "123";
+
+
+        String expectedFileText = "Check this file2";
+
+        new ZIPUtils().unzip(source,destination, password);
+
+        String actualFileText = new FileUtils().readStringFromFile("src/test/resources/files/unzipPas/file2.txt");
 
         System.out.println("Actual text from the file:\n" + actualFileText);
 
