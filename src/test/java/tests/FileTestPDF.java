@@ -1,6 +1,6 @@
 package tests;
 
-import com.codeborne.xlstest.XLS;
+import com.codeborne.pdftest.PDF;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -19,18 +19,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @Feature("Work with files")
 @Tag("file")
-@Tag("exel")
+@Tag("pdf")
 
+public class FileTestPDF {
 
-public class FileExel {
-
+    @Story("Download the PDF file")
+    @DisplayName("Positive test, download the PDF file")
     @Test
-    @Story("EXEL file test")
-    @DisplayName("Positive test, download und  search for the text in the EXEL file")
-
-    void successfulSearchTextinFileExel()  throws IOException {
-
-        String expectedFileText = "Черепанова";
+    void successfulFilePDF() throws IOException {
+//        Configuration.reportsFolder = <desired location for downloaded files>; чтобы поменять путь скачанных файлов
+        String expectedFileText = "Katj_FilesTests";
 
         String jenkinsLogin = "testuser";
         String jenkinsPassword = "testpassword%";
@@ -42,8 +40,10 @@ public class FileExel {
 
         open("https://jenkins.autotests.cloud/view/QA.GURU%20students/job/Katja_FilesTests/ws/src/test/resources/files/");
 
-        File actuelFile= $("[href='ExelTestFile.xlsx']").download();
-        XLS xls = new XLS(actuelFile);
-        assertThat(xls, XLS.containsText(expectedFileText));
+        File actualFile = $("[href='KatjaJenkins_pdf.pdf']").download();
+
+        PDF pdf = new PDF(actualFile);
+        assertThat(pdf, PDF.containsText(expectedFileText));
     }
+
 }
