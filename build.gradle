@@ -36,6 +36,8 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    testImplementation 'com.codeborne:pdf-test:1.5.1'
+    testImplementation 'com.codeborne:xls-test:1.4.1'
 
     testImplementation 'net.lingala.zip4j:zip4j:1.3.2'
 
